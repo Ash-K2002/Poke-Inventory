@@ -1,0 +1,18 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <% pokemon.forEach((poke)=>{ %>
+        <h1><%= poke.pokename %></h1>
+        <ul>
+            <li>Id: <%=poke.pokeid%></li>
+            <li>Level: <%=poke.level%></li>
+            <li>Type: <%=poke.type%></li>
+            <li>Trainer: <%=poke.trainer%> 
+            <a href="/details/trainer/<%= poke.trainerid%>">details</a></li>
+        </ul>
+        <% }); %>
+        <a href="/">back to home</a>
+    </body>
+</html>

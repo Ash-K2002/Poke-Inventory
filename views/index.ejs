@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title> 
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <ul class="poke-deck">
+        <% pokemons.forEach((pokemon)=>{ %>
+        <li>
+        <%- include("partials/pokeCard", {pokemon: pokemon}); %>
+        </li>
+        <% }) %>
+    </ul>
+
+    <section>
+        <a href="/create/pokemons">Add new pokemon</a>
+        <a href="/create/trainer">Add new trainer</a>
+    </section>
+    
+</body>
+</html>
