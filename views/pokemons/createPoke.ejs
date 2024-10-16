@@ -3,7 +3,8 @@
         <title>Create new pokemons</title>
     </head>
     <body>
-        <form action="/create/pokemon" method="post">
+        <%- include("../partials/errors.ejs") %>
+        <form action="/create/pokemons" method="post">
             <ul>
                 <li>
                     <label for="name">Name:</label>

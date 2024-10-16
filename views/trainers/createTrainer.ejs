@@ -3,7 +3,8 @@
         <title>Add new Trainer</title>
     </head>
     <body>
-        <form action="/create/trainer">
+        <%-include("../partials/errors.ejs")%>
+        <form action="/create/trainer" method="post">
             <ul>
                 <li>
                     <label for="name">Name: </label>
