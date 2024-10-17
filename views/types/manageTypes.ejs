@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Manage types</title>
+    </head>
+    <body>
+        <a href="/create/type">Add new type</a>
+        <ul>
+        <% types.forEach((type)=>{ %>
+            <li>
+                id: <%=type.id%>
+                name: <%=type.type_name%>
+                <a href="/update/type/<%=type.id%>">update</a>
+                <a href="/delete/type/<%=type.id%>">delete</a>
+            </li>
+        <% }) %>
+        </ul>    
+    </body>
+</html>

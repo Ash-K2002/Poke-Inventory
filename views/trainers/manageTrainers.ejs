@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Manage trainers</title>
+    </head>
+    <body>
+        <a href="/create/trainer">Add new trainer</a>
+        <ul>
+        <% trainers.forEach((trainer)=>{ %>
+            <li>
+                id: <%=trainer.id%>
+                name: <%=trainer.name%>
+                <a href="/update/trainer/<%=trainer.id%>">update</a>
+                <a href="/delete/trainer/<%=trainer.id%>">delete</a>
+            </li>
+        <% }) %>
+        </ul>    
+    </body>
+</html>

@@ -48,7 +48,14 @@ const updateTypePost =[
         await queries.updateType(type);
         res.redirect("/");
     }
-]
+];
+
+async function manageTypes(req, res){
+    const types = await queries.getAllTypes();
+    res.render("types/manageTypes",{
+        types: types,
+    });
+}
 
 
 export default {
@@ -56,4 +63,5 @@ export default {
     createTypePost,
     updateTypeGet,
     updateTypePost,
+    manageTypes,
 }

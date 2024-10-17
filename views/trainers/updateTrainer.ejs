@@ -3,7 +3,6 @@
         <title>update <%=trainer.name%></title>
     </head>
     <body>
-        <%= JSON.stringify(trainer) %>
         <%-include("../partials/errors.ejs")%>
         <form action="/update/trainer/<%=trainer.id%>" method="post">
             <ul>

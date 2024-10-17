@@ -58,7 +58,14 @@ const updateTrainerPost=[
         await queries.updateTrainer(trainer);
         res.redirect("/");
     }
-]
+];
+
+async function manageTrainers(req, res){
+    const trainers= await queries.getAllTrainers();
+    res.render("trainers/manageTrainers",{
+        trainers:trainers
+    });
+}
 
 export default{
     getThisTrainer,
@@ -66,4 +73,5 @@ export default{
     createTrainerPost,
     updateTrainerGet,
     updateTrainerPost,
+    manageTrainers,
 }

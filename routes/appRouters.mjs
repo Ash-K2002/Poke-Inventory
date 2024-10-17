@@ -20,5 +20,8 @@ appRouters.get("/update/trainer/:id", trainerController.updateTrainerGet);
 appRouters.post("/update/trainer/:id", trainerController.updateTrainerPost);
 appRouters.get("/update/type/:id", typeController.updateTypeGet);
 appRouters.post("/update/type/:id", typeController.updateTypePost);
+appRouters.get("/manage/trainers", trainerController.manageTrainers);
+appRouters.get("/manage/types", typeController.manageTypes);
+
 
 export default appRouters;
