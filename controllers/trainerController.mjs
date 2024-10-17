@@ -33,7 +33,6 @@ const createTrainerPost=[
 
 async function updateTrainerGet(req, res){
     const trainer = await queries.getTrainerDetails(req.params.id);
-    console.log(req.params.id);
     res.render("trainers/updateTrainer",{
         trainer: trainer
     });
@@ -67,6 +66,11 @@ async function manageTrainers(req, res){
     });
 }
 
+async function deleteTrainerPost(req, res){
+    await queries.deleteTrainer(req.params.id);
+    res.redirect("/manage/trainers");
+}
+
 export default{
     getThisTrainer,
     createTrainerGet,
@@ -74,4 +78,5 @@ export default{
     updateTrainerGet,
     updateTrainerPost,
     manageTrainers,
+    deleteTrainerPost,
 }

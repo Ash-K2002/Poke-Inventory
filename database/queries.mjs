@@ -155,6 +155,48 @@ async function updateType(type){
     }
 }
 
+async function deleteTrainer(id){
+    const queryText = `
+    DELETE FROM trainer WHERE id=$1`;
+
+    try{
+        await pool.query(queryText,[id]);
+        console.log("Trainer successfully deleted");
+    }catch(error){
+        console.error("Error occured while deleting trainer: ",error);
+        throw error;
+    }
+    
+}
+
+async function deleteType(id){
+    const queryText = `
+    DELETE FROM type WHERE id=$1`;
+
+    try{
+        await pool.query(queryText,[id]);
+        console.log("Type successfully deleted");
+    }catch(error){
+        console.error("Error occured while deleting type: ",error);
+        throw error;
+    }
+    
+}
+
+async function deletePokemon(id){
+    const queryText = `
+    DELETE FROM pokemon WHERE id=$1`;
+
+    try{
+        await pool.query(queryText,[id]);
+        console.log("Pokemon successfully deleted");
+    }catch(error){
+        console.error("Error occured while deleting pokemon: ",error);
+        throw error;
+    }
+    
+}
+
 const queries = {
     getPokemons,
     getPokeDetails,
@@ -168,6 +210,9 @@ const queries = {
     updateTrainer,
     getType,
     updateType,
+    deletePokemon,
+    deleteTrainer,
+    deleteType,
 }
 export default queries;
 

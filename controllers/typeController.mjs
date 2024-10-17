@@ -57,6 +57,11 @@ async function manageTypes(req, res){
     });
 }
 
+async function deleteType(req, res){
+    await queries.deleteType(req.params.id);
+    res.redirect("/manage/types");
+}
+
 
 export default {
     createTypeGet,
@@ -64,4 +69,5 @@ export default {
     updateTypeGet,
     updateTypePost,
     manageTypes,
+    deleteType,
 }

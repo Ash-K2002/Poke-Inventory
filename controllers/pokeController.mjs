@@ -44,7 +44,6 @@ const createPokePost=[
            type_id: req.body.type_id,
            trainer_id: (req.body.trainer_id=='')?null:req.body.trainer_id,
         };
-        console.log(req.body);
         await queries.insertPokemon(pokemon);
         res.redirect("/");
     }
@@ -55,7 +54,6 @@ async function updatePokeGet(req, res){
     const pokemon= await queries.getPokeDetails(req.params.id);
     const trainers = await queries.getAllTrainers();
     const types= await queries.getAllTypes();
-    console.log("updating: ",pokemon);
     res.render("pokemons/pokeUpdate",
         {
             title: req.params.id,
@@ -88,11 +86,15 @@ const updatePokePost = [
            type_id: req.body.type_id,
            trainer_id: (req.body.trainer_id=='')?null:req.body.trainer_id,
         };
-        console.log(req.body);
         await queries.updatePokemon(pokemon);
         res.redirect("/");
     }
-]
+];
+
+async function pokeDeletePost(req, res){
+    await queries.deletePokemon(req.params.id);
+    res.redirect("/");
+}
 
 
 export default {
@@ -102,4 +104,5 @@ export default {
     createPokePost,
     updatePokeGet,
     updatePokePost,
+    pokeDeletePost,
 }

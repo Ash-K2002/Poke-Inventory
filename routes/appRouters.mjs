@@ -22,6 +22,8 @@ appRouters.get("/update/type/:id", typeController.updateTypeGet);
 appRouters.post("/update/type/:id", typeController.updateTypePost);
 appRouters.get("/manage/trainers", trainerController.manageTrainers);
 appRouters.get("/manage/types", typeController.manageTypes);
-
+appRouters.post("/delete/pokemon/:id",pokeController.pokeDeletePost);
+appRouters.post("/delete/type/:id",typeController.deleteType);
+appRouters.post("/delete/trainer/:id",trainerController.deleteTrainerPost);
 
 export default appRouters;
