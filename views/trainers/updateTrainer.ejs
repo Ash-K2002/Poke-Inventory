@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>update <%=trainer.name%></title>
+    </head>
+    <body>
+        <%= JSON.stringify(trainer) %>
+        <%-include("../partials/errors.ejs")%>
+        <form action="/update/trainer/<%=trainer.id%>" method="post">
+            <ul>
+                <li>
+                    <label for="name">Name: </label>
+                    <input type="text" name="name" value="<%=trainer.name%>">
+                </li>
+                <li>
+                    <label for="region">Region: </label>
+                    <input type="text" name="region" value="<%=trainer.region%>">
+                </li>
+            </ul>
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>

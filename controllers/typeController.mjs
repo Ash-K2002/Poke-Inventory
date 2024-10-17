@@ -22,7 +22,38 @@ const createTypePost= [
     }
 ];
 
+async function updateTypeGet(req, res){
+    const type = await queries.getType(req.params.id);
+    res.render("types/updateType",{
+        type: type,
+    });
+
+}
+const updateTypePost =[
+    typevalidator,
+    async function (req,res){
+        const type = {
+            name: req.body.name,
+            id: req.params.id,
+        }
+
+        const errors= validationResult(req);
+        if(!errors.isEmpty()){
+            res.render("/types/updateTypes",{
+                errors: console.errors,
+                type:type,
+            });
+        }
+
+        await queries.updateType(type);
+        res.redirect("/");
+    }
+]
+
+
 export default {
     createTypeGet,
     createTypePost,
+    updateTypeGet,
+    updateTypePost,
 }

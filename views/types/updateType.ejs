@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>Create new type</title>
+    </head>
+    <body>
+        <% -include("../partials/errors.ejs") %>
+        <section>Type id: <%=type.id%></section>
+        <form action="/update/type/<%=type.id%>" method="post">
+            <label for="name">Enter Type:</label>
+            <input type="text" name="name" value="<%=type.type_name%>">
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>

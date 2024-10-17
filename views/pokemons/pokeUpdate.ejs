@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title><%=title%></title>
+    </head>
+    <body>
+        <%- include("../partials/errors.ejs") %>
+        <form action="/update/pokemons/<%=pokemon.pokeid%>" method="post">
+            <ul>
+                <li>
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" value="<%=pokemon.pokename%>">
+                </li>
+                <li>
+                    <label for="level">Level:</label>
+                    <input type="number" name="level" value="<%=pokemon.level%>">
+                </li>
+                <li>
+                    <label for="type_id">Type:</label>
+                    <select name="type_id" id="type_id">
+                        <option value="">Select Type</option>
+                        <% types.forEach((type)=>{%>
+                        <option value="<%=type.id%>"
+                            <%= (type.type_name===pokemon.type)?'selected':'' %>
+                            >
+                            <%=type.id%> <%=type.type_name%>
+                        </option>
+                        <% }); %>
+                    </select>
+                </li>
+            <li>
+            <label for="trainer_id">Select Trainer</label>
+            <select name="trainer_id" id="trainer_id">
+                <option value="">Wild pokemon</option>
+                <% trainers.forEach((trainer)=>{%>
+                <option value="<%=trainer.id%>"
+                    <%= (trainer.id===pokemon.trainerid)?'selected':'' %>
+                    >
+                    <%=trainer.id%> <%=trainer.name%>
+                </option>
+                <% }); %>
+            </select>
+            </li>
+            </ul>
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
